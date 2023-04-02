@@ -10,7 +10,7 @@ class TestStack(unittest.TestCase):
         self.stack = None
 
     def test_push(self):
-        """Тестируем push."""
+        """Тест на метод push."""
         stack = Stack()
         stack.push('testdata')
         self.assertEqual(stack.top.data, 'testdata')
@@ -20,3 +20,12 @@ class TestStack(unittest.TestCase):
         stack.push('testdata1')
         self.assertIsInstance(stack.top.next_node, Node)
         self.assertEqual(stack.top.data, 'testdata1')
+
+    def test_pop(self):
+        """Тесты на метод pop."""
+        stack = Stack()
+        stack.push('testdata_1')
+        node_2 = stack.top
+        self.assertIs(stack.pop(), node_2.data)
+        with self.assertRaises(AttributeError):
+            stack.pop()

@@ -32,4 +32,6 @@ class Stack:
 
         :return: данные удаленного элемента
         """
-        pass
+        pop_top = self.top
+        self.top = self.top.next_node
+        return pop_top.data
